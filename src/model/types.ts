@@ -17,7 +17,7 @@ export interface Answers {
   units?: Units;
 }
 
-/** Liftosaur's equipment keys, plus `bar` for a pull-up bar. */
+/** Liftosaur equipment keys plus supporting gear; `bar` means a pull-up bar. */
 export type Gear =
   | 'barbell'
   | 'dumbbell'

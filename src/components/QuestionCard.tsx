@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import type { Question } from '../model/quiz';
 import type { Answers } from '../model/types';
-import { BackIcon, CheckIcon, ChoiceArt, ClockArt, DaysArt, RestartIcon } from './Icons';
+import { BackIcon, CheckIcon, ClockArt, DaysArt, RestartIcon } from './Icons';
+import { ChoiceArt } from './choiceIllustrations';
 import { TRAINING_DAYS } from '../model/week';
 
 interface Props {
