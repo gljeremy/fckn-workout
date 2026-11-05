@@ -1,0 +1,2060 @@
+{
+ "abWheel": {
+  "name": "Ab Wheel",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight"
+  ]
+ },
+ "arnoldPress": {
+  "name": "Arnold Press",
+  "def": "dumbbell",
+  "lb": 20,
+  "kg": 7.5,
+  "eq": [
+   "dumbbell",
+   "kettlebell"
+  ]
+ },
+ "aroundTheWorld": {
+  "name": "Around The World",
+  "def": "dumbbell",
+  "lb": 15,
+  "kg": 5,
+  "eq": [
+   "dumbbell"
+  ]
+ },
+ "backExtension": {
+  "name": "Back Extension",
+  "def": "leverageMachine",
+  "lb": 50,
+  "kg": 22.5,
+  "eq": [
+   "bodyweight",
+   "leveragemachine"
+  ]
+ },
+ "ballSlams": {
+  "name": "Ball Slams",
+  "def": "medicineball",
+  "lb": 10,
+  "kg": 4.5,
+  "eq": [
+   "medicineball"
+  ]
+ },
+ "battleRopes": {
+  "name": "Battle Ropes",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight"
+  ]
+ },
+ "behindTheNeckPress": {
+  "name": "Behind The Neck Press",
+  "def": "barbell",
+  "lb": 65,
+  "kg": 27.5,
+  "eq": [
+   "band",
+   "barbell",
+   "smith"
+  ]
+ },
+ "benchDip": {
+  "name": "Bench Dip",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight"
+  ]
+ },
+ "benchPress": {
+  "name": "Bench Press",
+  "def": "barbell",
+  "lb": 135,
+  "kg": 60,
+  "eq": [
+   "band",
+   "barbell",
+   "cable",
+   "dumbbell",
+   "kettlebell",
+   "smith"
+  ]
+ },
+ "benchPressCloseGrip": {
+  "name": "Bench Press Close Grip",
+  "def": "barbell",
+  "lb": 115,
+  "kg": 50,
+  "eq": [
+   "barbell",
+   "ezbar",
+   "smith"
+  ]
+ },
+ "benchPressWideGrip": {
+  "name": "Bench Press Wide Grip",
+  "def": "barbell",
+  "lb": 135,
+  "kg": 60,
+  "eq": [
+   "barbell",
+   "smith"
+  ]
+ },
+ "bentOverOneArmRow": {
+  "name": "Bent Over One Arm Row",
+  "def": "dumbbell",
+  "lb": 30,
+  "kg": 12.5,
+  "eq": [
+   "dumbbell"
+  ]
+ },
+ "bentOverRow": {
+  "name": "Bent Over Row",
+  "def": "barbell",
+  "lb": 95,
+  "kg": 42.5,
+  "eq": [
+   "band",
+   "barbell",
+   "cable",
+   "dumbbell",
+   "leveragemachine",
+   "smith"
+  ]
+ },
+ "bicepCurl": {
+  "name": "Bicep Curl",
+  "def": "dumbbell",
+  "lb": 20,
+  "kg": 7.5,
+  "eq": [
+   "band",
+   "barbell",
+   "cable",
+   "dumbbell",
+   "ezbar",
+   "leveragemachine"
+  ]
+ },
+ "bicycleCrunch": {
+  "name": "Bicycle Crunch",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight"
+  ]
+ },
+ "boxJump": {
+  "name": "Box Jump",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0
+ },
+ "boxSquat": {
+  "name": "Box Squat",
+  "def": "barbell",
+  "lb": 155,
+  "kg": 70,
+  "eq": [
+   "barbell",
+   "dumbbell"
+  ]
+ },
+ "bulgarianSplitSquat": {
+  "name": "Bulgarian Split Squat",
+  "def": "dumbbell",
+  "lb": 25,
+  "kg": 10,
+  "eq": [
+   "dumbbell",
+   "bodyweight"
+  ]
+ },
+ "burpee": {
+  "name": "Burpee",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0
+ },
+ "cableCrossover": {
+  "name": "Cable Crossover",
+  "def": "cable",
+  "lb": 20,
+  "kg": 7.5,
+  "eq": [
+   "cable"
+  ]
+ },
+ "cableCrunch": {
+  "name": "Cable Crunch",
+  "def": "cable",
+  "lb": 50,
+  "kg": 22.5,
+  "eq": [
+   "cable"
+  ]
+ },
+ "cableKickback": {
+  "name": "Cable Kickback",
+  "def": "cable",
+  "lb": 20,
+  "kg": 7.5,
+  "eq": [
+   "cable"
+  ]
+ },
+ "cablePullThrough": {
+  "name": "Cable Pull Through",
+  "def": "cable",
+  "lb": 70,
+  "kg": 30,
+  "eq": [
+   "cable"
+  ]
+ },
+ "cableTwist": {
+  "name": "Cable Twist",
+  "def": "cable",
+  "lb": 30,
+  "kg": 12.5,
+  "eq": [
+   "band",
+   "barbell",
+   "bodyweight",
+   "cable",
+   "leveragemachine"
+  ]
+ },
+ "calfPressOnLegPress": {
+  "name": "Calf Press on Leg Press",
+  "def": "leverageMachine",
+  "lb": 150,
+  "kg": 67.5,
+  "eq": [
+   "leveragemachine"
+  ]
+ },
+ "calfPressOnSeatedLegPress": {
+  "name": "Calf Press on Seated Leg Press",
+  "def": "leverageMachine",
+  "lb": 120,
+  "kg": 53.75,
+  "eq": [
+   "leveragemachine"
+  ]
+ },
+ "chestDip": {
+  "name": "Chest Dip",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight"
+  ]
+ },
+ "chestFly": {
+  "name": "Chest Fly",
+  "def": "dumbbell",
+  "lb": 20,
+  "kg": 7.5,
+  "eq": [
+   "barbell",
+   "cable",
+   "dumbbell",
+   "leveragemachine"
+  ]
+ },
+ "chestPress": {
+  "name": "Chest Press",
+  "def": "dumbbell",
+  "lb": 30,
+  "kg": 12.5,
+  "eq": [
+   "band",
+   "leveragemachine"
+  ]
+ },
+ "chestSupportedRow": {
+  "name": "Chest-Supported Row",
+  "def": "barbell",
+  "lb": 85,
+  "kg": 37.5
+ },
+ "chinUp": {
+  "name": "Chin Up",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight",
+   "leveragemachine"
+  ]
+ },
+ "clean": {
+  "name": "Clean",
+  "def": "barbell",
+  "lb": 95,
+  "kg": 42.5,
+  "eq": [
+   "barbell"
+  ]
+ },
+ "cleanandJerk": {
+  "name": "Clean and Jerk",
+  "def": "barbell",
+  "lb": 95,
+  "kg": 42.5,
+  "eq": [
+   "barbell"
+  ]
+ },
+ "concentrationCurl": {
+  "name": "Concentration Curl",
+  "def": "dumbbell",
+  "lb": 20,
+  "kg": 7.5,
+  "eq": [
+   "band",
+   "barbell",
+   "cable",
+   "dumbbell"
+  ]
+ },
+ "crossBodyCrunch": {
+  "name": "Cross Body Crunch",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight"
+  ]
+ },
+ "crunch": {
+  "name": "Crunch",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight",
+   "cable",
+   "leveragemachine"
+  ]
+ },
+ "cycling": {
+  "name": "Cycling",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0
+ },
+ "deadlift": {
+  "name": "Deadlift",
+  "def": "barbell",
+  "lb": 185,
+  "kg": 82.5,
+  "eq": [
+   "band",
+   "barbell",
+   "cable",
+   "dumbbell",
+   "kettlebell",
+   "leveragemachine",
+   "smith"
+  ]
+ },
+ "deadliftHighPull": {
+  "name": "Deadlift High Pull",
+  "def": "barbell",
+  "lb": 75,
+  "kg": 32.5,
+  "eq": [
+   "barbell"
+  ]
+ },
+ "declineBenchPress": {
+  "name": "Decline Bench Press",
+  "def": "barbell",
+  "lb": 125,
+  "kg": 55,
+  "eq": [
+   "dumbbell",
+   "smith"
+  ]
+ },
+ "declineCrunch": {
+  "name": "Decline Crunch",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0
+ },
+ "deficitDeadlift": {
+  "name": "Deficit Deadlift",
+  "def": "barbell",
+  "lb": 165,
+  "kg": 75,
+  "eq": [
+   "barbell",
+   "trapbar"
+  ]
+ },
+ "ellipticalMachine": {
+  "name": "Elliptical Machine",
+  "def": "leverageMachine",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "leveragemachine"
+  ]
+ },
+ "facePull": {
+  "name": "Face Pull",
+  "def": "band",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "band"
+  ]
+ },
+ "flatKneeRaise": {
+  "name": "Flat Knee Raise",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight"
+  ]
+ },
+ "flatLegRaise": {
+  "name": "Flat Leg Raise",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight"
+  ]
+ },
+ "frontRaise": {
+  "name": "Front Raise",
+  "def": "dumbbell",
+  "lb": 15,
+  "kg": 5,
+  "eq": [
+   "band",
+   "barbell",
+   "bodyweight",
+   "cable",
+   "dumbbell"
+  ]
+ },
+ "frontSquat": {
+  "name": "Front Squat",
+  "def": "barbell",
+  "lb": 95,
+  "kg": 42.5,
+  "eq": [
+   "barbell",
+   "cable",
+   "dumbbell",
+   "kettlebell",
+   "smith"
+  ]
+ },
+ "gobletSquat": {
+  "name": "Goblet Squat",
+  "def": "dumbbell",
+  "lb": 35,
+  "kg": 15,
+  "eq": [
+   "dumbbell",
+   "kettlebell"
+  ]
+ },
+ "goodMorning": {
+  "name": "Good Morning",
+  "def": "barbell",
+  "lb": 65,
+  "kg": 27.5,
+  "eq": [
+   "barbell",
+   "leveragemachine",
+   "smith"
+  ]
+ },
+ "gluteBridge": {
+  "name": "Glute Bridge",
+  "def": "dumbbell",
+  "lb": 35,
+  "kg": 15,
+  "eq": [
+   "band",
+   "barbell",
+   "dumbbell"
+  ]
+ },
+ "gluteBridgeMarch": {
+  "name": "Glute Bridge March",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight"
+  ]
+ },
+ "gluteKickback": {
+  "name": "Glute Kickback",
+  "def": "cable",
+  "lb": 35,
+  "kg": 15,
+  "eq": [
+   "band",
+   "cable"
+  ]
+ },
+ "hackSquat": {
+  "name": "Hack Squat",
+  "def": "barbell",
+  "lb": 115,
+  "kg": 50,
+  "eq": [
+   "barbell",
+   "smith"
+  ]
+ },
+ "hammerCurl": {
+  "name": "Hammer Curl",
+  "def": "dumbbell",
+  "lb": 25,
+  "kg": 10,
+  "eq": [
+   "band",
+   "cable",
+   "dumbbell"
+  ]
+ },
+ "handstandPushUp": {
+  "name": "Handstand Push Up",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight"
+  ]
+ },
+ "hangClean": {
+  "name": "Hang Clean",
+  "def": "barbell",
+  "lb": 85,
+  "kg": 37.5,
+  "eq": [
+   "kettlebell"
+  ]
+ },
+ "hangSnatch": {
+  "name": "Hang Snatch",
+  "def": "barbell",
+  "lb": 65,
+  "kg": 27.5
+ },
+ "hangingLegRaise": {
+  "name": "Hanging Leg Raise",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight",
+   "cable"
+  ]
+ },
+ "highKneeSkips": {
+  "name": "High Knee Skips",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0
+ },
+ "highRow": {
+  "name": "High Row",
+  "def": "leverageMachine",
+  "lb": 65,
+  "kg": 27.5,
+  "eq": [
+   "cable",
+   "leveragemachine"
+  ]
+ },
+ "hipAbductor": {
+  "name": "Hip Abductor",
+  "def": "leverageMachine",
+  "lb": 60,
+  "kg": 26.25,
+  "eq": [
+   "band",
+   "bodyweight",
+   "cable",
+   "leveragemachine"
+  ]
+ },
+ "hipAdductor": {
+  "name": "Hip Adductor",
+  "def": "leverageMachine",
+  "lb": 60,
+  "kg": 26.25,
+  "eq": [
+   "leveragemachine"
+  ]
+ },
+ "hipThrust": {
+  "name": "Hip Thrust",
+  "def": "barbell",
+  "lb": 95,
+  "kg": 42.5,
+  "eq": [
+   "band",
+   "barbell",
+   "bodyweight",
+   "leveragemachine"
+  ]
+ },
+ "inclineBenchPress": {
+  "name": "Incline Bench Press",
+  "def": "barbell",
+  "lb": 115,
+  "kg": 50,
+  "eq": [
+   "barbell",
+   "cable",
+   "dumbbell",
+   "smith"
+  ]
+ },
+ "inclineBenchPressWideGrip": {
+  "name": "Incline Bench Press Wide Grip",
+  "def": "barbell",
+  "lb": 110,
+  "kg": 50,
+  "eq": [
+   "barbell"
+  ]
+ },
+ "inclineChestFly": {
+  "name": "Incline Chest Fly",
+  "def": "dumbbell",
+  "lb": 20,
+  "kg": 7.5,
+  "eq": [
+   "cable",
+   "dumbbell"
+  ]
+ },
+ "inclineChestPress": {
+  "name": "Incline Chest Press",
+  "def": "dumbbell",
+  "lb": 25,
+  "kg": 10,
+  "eq": [
+   "band",
+   "dumbbell",
+   "leveragemachine"
+  ]
+ },
+ "inclineCurl": {
+  "name": "Incline Curl",
+  "def": "dumbbell",
+  "lb": 20,
+  "kg": 7.5,
+  "eq": [
+   "dumbbell"
+  ]
+ },
+ "inclineRow": {
+  "name": "Incline Row",
+  "def": "dumbbell",
+  "lb": 30,
+  "kg": 12.5,
+  "eq": [
+   "barbell",
+   "dumbbell",
+   "bodyweight"
+  ]
+ },
+ "invertedRow": {
+  "name": "Inverted Row",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight"
+  ]
+ },
+ "isoLateralChestPress": {
+  "name": "Iso-Lateral Chest Press",
+  "def": "dumbbell",
+  "lb": 30,
+  "kg": 12.5
+ },
+ "isoLateralRow": {
+  "name": "Iso-Lateral Row",
+  "def": "dumbbell",
+  "lb": 30,
+  "kg": 12.5
+ },
+ "jackknifeSitUp": {
+  "name": "Jackknife Sit Up",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight"
+  ]
+ },
+ "jumpRope": {
+  "name": "Jump Rope",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0
+ },
+ "jumpSquat": {
+  "name": "Jump Squat",
+  "def": "barbell",
+  "lb": 65,
+  "kg": 27.5,
+  "eq": [
+   "barbell",
+   "bodyweight"
+  ]
+ },
+ "jumpingJack": {
+  "name": "Jumping Jack",
+  "lb": 0,
+  "kg": 0
+ },
+ "kettlebellSwing": {
+  "name": "Kettlebell Swing",
+  "def": "kettlebell",
+  "lb": 35,
+  "kg": 16,
+  "eq": [
+   "dumbbell",
+   "kettlebell"
+  ]
+ },
+ "kettlebellTurkishGetUp": {
+  "name": "Kettlebell Turkish Get Up",
+  "def": "kettlebell",
+  "lb": 25,
+  "kg": 8
+ },
+ "kippingPullUp": {
+  "name": "Kipping Pull Up",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0
+ },
+ "kneeRaise": {
+  "name": "Knee Raise",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0
+ },
+ "kneelingPulldown": {
+  "name": "Kneeling Pulldown",
+  "def": "band",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "band"
+  ]
+ },
+ "kneestoElbows": {
+  "name": "Knees to Elbows",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight"
+  ]
+ },
+ "latPulldown": {
+  "name": "Lat Pulldown",
+  "def": "cable",
+  "lb": 70,
+  "kg": 30,
+  "eq": [
+   "cable",
+   "leveragemachine"
+  ]
+ },
+ "lateralBoxJump": {
+  "name": "Lateral Box Jump",
+  "lb": 0,
+  "kg": 0
+ },
+ "lateralRaise": {
+  "name": "Lateral Raise",
+  "def": "dumbbell",
+  "lb": 15,
+  "kg": 5,
+  "eq": [
+   "band",
+   "cable",
+   "dumbbell",
+   "kettlebell",
+   "leveragemachine"
+  ]
+ },
+ "legsUpBenchPress": {
+  "name": "Legs Up Bench Press",
+  "def": "barbell",
+  "lb": 135,
+  "kg": 60,
+  "eq": [
+   "barbell"
+  ]
+ },
+ "legCurl": {
+  "name": "Leg Curl",
+  "def": "leverageMachine",
+  "lb": 60,
+  "kg": 26.25
+ },
+ "legExtension": {
+  "name": "Leg Extension",
+  "def": "leverageMachine",
+  "lb": 60,
+  "kg": 26.25,
+  "eq": [
+   "band",
+   "leveragemachine"
+  ]
+ },
+ "legPress": {
+  "name": "Leg Press",
+  "def": "leverageMachine",
+  "lb": 250,
+  "kg": 112.5,
+  "eq": [
+   "leveragemachine",
+   "smith"
+  ]
+ },
+ "lunge": {
+  "name": "Lunge",
+  "def": "barbell",
+  "lb": 75,
+  "kg": 32.5,
+  "eq": [
+   "barbell",
+   "bodyweight",
+   "cable",
+   "dumbbell"
+  ]
+ },
+ "lyingBicepCurl": {
+  "name": "Lying Bicep Curl",
+  "def": "dumbbell",
+  "lb": 15,
+  "kg": 5,
+  "eq": [
+   "cable",
+   "dumbbell"
+  ]
+ },
+ "lyingLegCurl": {
+  "name": "Lying Leg Curl",
+  "def": "leverageMachine",
+  "lb": 60,
+  "kg": 26.25,
+  "eq": [
+   "band",
+   "leveragemachine"
+  ]
+ },
+ "mountainClimber": {
+  "name": "Mountain Climber",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0
+ },
+ "muscleUp": {
+  "name": "Muscle Up",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight"
+  ]
+ },
+ "obliqueCrunch": {
+  "name": "Oblique Crunch",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight"
+  ]
+ },
+ "overheadPress": {
+  "name": "Overhead Press",
+  "def": "barbell",
+  "lb": 75,
+  "kg": 32.5,
+  "eq": [
+   "barbell",
+   "dumbbell",
+   "ezbar"
+  ]
+ },
+ "overheadSquat": {
+  "name": "Overhead Squat",
+  "def": "barbell",
+  "lb": 55,
+  "kg": 25,
+  "eq": [
+   "barbell",
+   "dumbbell"
+  ]
+ },
+ "pecDeck": {
+  "name": "Pec Deck",
+  "def": "leverageMachine",
+  "lb": 50,
+  "kg": 22.5,
+  "eq": [
+   "leveragemachine"
+  ]
+ },
+ "pendlayRow": {
+  "name": "Pendlay Row",
+  "def": "barbell",
+  "lb": 95,
+  "kg": 42.5,
+  "eq": [
+   "barbell"
+  ]
+ },
+ "pistolSquat": {
+  "name": "Pistol Squat",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight",
+   "kettlebell",
+   "leveragemachine"
+  ]
+ },
+ "plank": {
+  "name": "Plank",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight"
+  ]
+ },
+ "powerClean": {
+  "name": "Power Clean",
+  "def": "barbell",
+  "lb": 95,
+  "kg": 42.5
+ },
+ "powerSnatch": {
+  "name": "Power Snatch",
+  "def": "barbell",
+  "lb": 65,
+  "kg": 27.5
+ },
+ "preacherCurl": {
+  "name": "Preacher Curl",
+  "def": "dumbbell",
+  "lb": 20,
+  "kg": 7.5,
+  "eq": [
+   "barbell",
+   "dumbbell",
+   "ezbar",
+   "leveragemachine"
+  ]
+ },
+ "pressUnder": {
+  "name": "Press Under",
+  "def": "barbell",
+  "lb": 65,
+  "kg": 27.5
+ },
+ "pullUp": {
+  "name": "Pull Up",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "band",
+   "bodyweight",
+   "leveragemachine"
+  ]
+ },
+ "pullover": {
+  "name": "Pullover",
+  "def": "dumbbell",
+  "lb": 25,
+  "kg": 10,
+  "eq": [
+   "barbell",
+   "dumbbell"
+  ]
+ },
+ "pushPress": {
+  "name": "Push Press",
+  "def": "kettlebell",
+  "lb": 35,
+  "kg": 16,
+  "eq": [
+   "barbell",
+   "bodyweight",
+   "dumbbell",
+   "kettlebell"
+  ]
+ },
+ "pushUp": {
+  "name": "Push Up",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "band",
+   "bodyweight"
+  ]
+ },
+ "reverseCrunch": {
+  "name": "Reverse Crunch",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight",
+   "cable"
+  ]
+ },
+ "reverseCurl": {
+  "name": "Reverse Curl",
+  "def": "dumbbell",
+  "lb": 15,
+  "kg": 5,
+  "eq": [
+   "band",
+   "barbell",
+   "cable",
+   "dumbbell"
+  ]
+ },
+ "reverseFly": {
+  "name": "Reverse Fly",
+  "def": "dumbbell",
+  "lb": 15,
+  "kg": 5,
+  "eq": [
+   "band",
+   "dumbbell",
+   "leveragemachine"
+  ]
+ },
+ "reverseGripConcentrationCurl": {
+  "name": "Reverse Grip Concentration Curl",
+  "def": "dumbbell",
+  "lb": 20,
+  "kg": 7.5
+ },
+ "reversePlank": {
+  "name": "Reverse Plank",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0
+ },
+ "reverseLatPulldown": {
+  "name": "Reverse Lat Pulldown",
+  "def": "cable",
+  "lb": 70,
+  "kg": 30
+ },
+ "reverseLunge": {
+  "name": "Reverse Lunge",
+  "def": "dumbbell",
+  "lb": 25,
+  "kg": 10,
+  "eq": [
+   "barbell",
+   "bodyweight",
+   "dumbbell",
+   "kettlebell"
+  ]
+ },
+ "reverseWristCurl": {
+  "name": "Reverse Wrist Curl",
+  "def": "barbell",
+  "lb": 25,
+  "kg": 10,
+  "eq": [
+   "barbell",
+   "dumbbell",
+   "ezbar"
+  ]
+ },
+ "romanianDeadlift": {
+  "name": "Romanian Deadlift",
+  "def": "dumbbell",
+  "lb": 40,
+  "kg": 17.5,
+  "eq": [
+   "barbell",
+   "dumbbell",
+   "bodyweight"
+  ]
+ },
+ "reverseHyperextension": {
+  "name": "Reverse Hyperextension",
+  "def": "band",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "band",
+   "leveragemachine",
+   "bodyweight"
+  ]
+ },
+ "rowing": {
+  "name": "Rowing",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0
+ },
+ "russianTwist": {
+  "name": "Russian Twist",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight",
+   "cable",
+   "dumbbell"
+  ]
+ },
+ "safetySquatBarSquat": {
+  "name": "Safety Squat Bar Squat",
+  "def": "barbell",
+  "lb": 145,
+  "kg": 65,
+  "eq": [
+   "barbell"
+  ]
+ },
+ "seatedCalfRaise": {
+  "name": "Seated Calf Raise",
+  "def": "barbell",
+  "lb": 90,
+  "kg": 40,
+  "eq": [
+   "barbell",
+   "dumbbell",
+   "leveragemachine"
+  ]
+ },
+ "seatedFrontRaise": {
+  "name": "Seated Front Raise",
+  "def": "dumbbell",
+  "lb": 15,
+  "kg": 5,
+  "eq": [
+   "barbell",
+   "dumbbell"
+  ]
+ },
+ "seatedLegCurl": {
+  "name": "Seated Leg Curl",
+  "def": "leverageMachine",
+  "lb": 60,
+  "kg": 26.25,
+  "eq": [
+   "leveragemachine"
+  ]
+ },
+ "seatedLegPress": {
+  "name": "Seated Leg Press",
+  "def": "leverageMachine",
+  "lb": 200,
+  "kg": 90,
+  "eq": [
+   "leveragemachine"
+  ]
+ },
+ "seatedOverheadPress": {
+  "name": "Seated Overhead Press",
+  "def": "barbell",
+  "lb": 75,
+  "kg": 32.5,
+  "eq": [
+   "barbell"
+  ]
+ },
+ "seatedPalmsUpWristCurl": {
+  "name": "Seated Palms Up Wrist Curl",
+  "def": "dumbbell",
+  "lb": 15,
+  "kg": 5,
+  "eq": [
+   "dumbbell"
+  ]
+ },
+ "seatedRow": {
+  "name": "Seated Row",
+  "def": "cable",
+  "lb": 70,
+  "kg": 30,
+  "eq": [
+   "band",
+   "cable",
+   "leveragemachine"
+  ]
+ },
+ "seatedWideGripRow": {
+  "name": "Seated Wide Grip Row",
+  "def": "cable",
+  "lb": 65,
+  "kg": 27.5,
+  "eq": [
+   "cable"
+  ]
+ },
+ "shoulderPress": {
+  "name": "Shoulder Press",
+  "def": "dumbbell",
+  "lb": 25,
+  "kg": 10,
+  "eq": [
+   "band",
+   "cable",
+   "dumbbell",
+   "leveragemachine",
+   "smith"
+  ]
+ },
+ "shoulderPressParallelGrip": {
+  "name": "Shoulder Press Parallel Grip",
+  "def": "dumbbell",
+  "lb": 25,
+  "kg": 10,
+  "eq": [
+   "dumbbell"
+  ]
+ },
+ "shrug": {
+  "name": "Shrug",
+  "def": "dumbbell",
+  "lb": 45,
+  "kg": 20,
+  "eq": [
+   "band",
+   "barbell",
+   "cable",
+   "dumbbell",
+   "leveragemachine",
+   "smith"
+  ]
+ },
+ "sideBend": {
+  "name": "Side Bend",
+  "def": "dumbbell",
+  "lb": 30,
+  "kg": 12.5,
+  "eq": [
+   "band",
+   "cable",
+   "dumbbell"
+  ]
+ },
+ "sideCrunch": {
+  "name": "Side Crunch",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "band",
+   "bodyweight",
+   "cable"
+  ]
+ },
+ "sideHipAbductor": {
+  "name": "Side Hip Abductor",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "barbell",
+   "bodyweight",
+   "leveragemachine"
+  ]
+ },
+ "sideLyingClam": {
+  "name": "Side Lying Clam",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight"
+  ]
+ },
+ "sidePlank": {
+  "name": "Side Plank",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight"
+  ]
+ },
+ "singleLegBridge": {
+  "name": "Single Leg Bridge",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight"
+  ]
+ },
+ "singleLegCalfRaise": {
+  "name": "Single Leg Calf Raise",
+  "def": "barbell",
+  "lb": 85,
+  "kg": 37.5
+ },
+ "singleLegDeadlift": {
+  "name": "Single Leg Deadlift",
+  "def": "dumbbell",
+  "lb": 30,
+  "kg": 12.5,
+  "eq": [
+   "bodyweight",
+   "dumbbell"
+  ]
+ },
+ "singleLegGluteBridgeBench": {
+  "name": "Single Leg Glute Bridge On Bench",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight"
+  ]
+ },
+ "singleLegGluteBridgeStraight": {
+  "name": "Single Leg Glute Bridge Straight Leg",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight"
+  ]
+ },
+ "singleLegGluteBridgeBentKnee": {
+  "name": "Single Leg Glute Bridge Bent Knee",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight"
+  ]
+ },
+ "singleLegHipThrust": {
+  "name": "Single Leg Hip Thrust",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "barbell",
+   "bodyweight",
+   "leveragemachine"
+  ]
+ },
+ "sissySquat": {
+  "name": "Sissy Squat",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight"
+  ]
+ },
+ "sitUp": {
+  "name": "Sit Up",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight",
+   "kettlebell"
+  ]
+ },
+ "skullcrusher": {
+  "name": "Skullcrusher",
+  "def": "ezbar",
+  "lb": 45,
+  "kg": 20,
+  "eq": [
+   "barbell",
+   "cable",
+   "dumbbell",
+   "ezbar"
+  ]
+ },
+ "slingShotBenchPress": {
+  "name": "Sling Shot Bench Press",
+  "def": "barbell",
+  "lb": 140,
+  "kg": 62.5
+ },
+ "snatch": {
+  "name": "Snatch",
+  "def": "dumbbell",
+  "lb": 25,
+  "kg": 10,
+  "eq": [
+   "dumbbell"
+  ]
+ },
+ "snatchPull": {
+  "name": "Snatch Pull",
+  "def": "barbell",
+  "lb": 85,
+  "kg": 37.5
+ },
+ "splitSquat": {
+  "name": "Split Squat",
+  "def": "dumbbell",
+  "lb": 25,
+  "kg": 10,
+  "eq": [
+   "band",
+   "barbell",
+   "bodyweight",
+   "dumbbell",
+   "kettlebell"
+  ]
+ },
+ "splitJerk": {
+  "name": "Split Jerk",
+  "def": "barbell",
+  "lb": 95,
+  "kg": 42.5
+ },
+ "squat": {
+  "name": "Squat",
+  "def": "barbell",
+  "lb": 135,
+  "kg": 60,
+  "eq": [
+   "barbell",
+   "bodyweight",
+   "dumbbell",
+   "leveragemachine",
+   "smith"
+  ]
+ },
+ "squatRow": {
+  "name": "Squat Row",
+  "def": "band",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "band"
+  ]
+ },
+ "standingCalfRaise": {
+  "name": "Standing Calf Raise",
+  "def": "dumbbell",
+  "lb": 35,
+  "kg": 15,
+  "eq": [
+   "barbell",
+   "bodyweight",
+   "cable",
+   "dumbbell",
+   "leveragemachine"
+  ]
+ },
+ "standingRow": {
+  "name": "Standing Row",
+  "def": "cable",
+  "lb": 70,
+  "kg": 30,
+  "eq": [
+   "cable"
+  ]
+ },
+ "standingRowCloseGrip": {
+  "name": "Standing Row Close Grip",
+  "def": "cable",
+  "lb": 65,
+  "kg": 27.5,
+  "eq": [
+   "cable"
+  ]
+ },
+ "standingRowRearDeltWithRope": {
+  "name": "Standing Row Rear Delt With Rope",
+  "def": "cable",
+  "lb": 30,
+  "kg": 12.5,
+  "eq": [
+   "cable"
+  ]
+ },
+ "standingRowRearHorizontalDeltWithRope": {
+  "name": "Standing Row Rear Delt, Horizontal, With Rope",
+  "def": "cable",
+  "lb": 30,
+  "kg": 12.5,
+  "eq": [
+   "cable"
+  ]
+ },
+ "standingRowVBar": {
+  "name": "Standing Row V-Bar",
+  "def": "cable",
+  "lb": 70,
+  "kg": 30,
+  "eq": [
+   "cable"
+  ]
+ },
+ "stepUp": {
+  "name": "Step up",
+  "def": "dumbbell",
+  "lb": 25,
+  "kg": 10,
+  "eq": [
+   "band",
+   "barbell",
+   "bodyweight",
+   "dumbbell"
+  ]
+ },
+ "stiffLegDeadlift": {
+  "name": "Stiff Leg Deadlift",
+  "def": "barbell",
+  "lb": 115,
+  "kg": 50,
+  "eq": [
+   "band",
+   "barbell",
+   "dumbbell"
+  ]
+ },
+ "straightLegDeadlift": {
+  "name": "Straight Leg Deadlift",
+  "def": "barbell",
+  "lb": 110,
+  "kg": 50,
+  "eq": [
+   "band",
+   "barbell",
+   "dumbbell",
+   "kettlebell"
+  ]
+ },
+ "sumoDeadlift": {
+  "name": "Sumo Deadlift",
+  "def": "barbell",
+  "lb": 175,
+  "kg": 77.5,
+  "eq": [
+   "barbell"
+  ]
+ },
+ "sumoDeadliftHighPull": {
+  "name": "Sumo Deadlift High Pull",
+  "def": "barbell",
+  "lb": 85,
+  "kg": 37.5,
+  "eq": [
+   "barbell"
+  ]
+ },
+ "superman": {
+  "name": "Superman",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight",
+   "dumbbell"
+  ]
+ },
+ "tBarRow": {
+  "name": "T Bar Row",
+  "def": "leverageMachine",
+  "lb": 90,
+  "kg": 40,
+  "eq": [
+   "leveragemachine"
+  ]
+ },
+ "thruster": {
+  "name": "Thruster",
+  "def": "barbell",
+  "lb": 65,
+  "kg": 27.5,
+  "eq": [
+   "barbell"
+  ]
+ },
+ "toesToBar": {
+  "name": "Toes To Bar",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight"
+  ]
+ },
+ "torsoRotation": {
+  "name": "Torso Rotation",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0
+ },
+ "trapBarDeadlift": {
+  "name": "Trap Bar Deadlift",
+  "def": "trapbar",
+  "lb": 185,
+  "kg": 82.5,
+  "eq": [
+   "trapbar"
+  ]
+ },
+ "tricepsDip": {
+  "name": "Triceps Dip",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight",
+   "leveragemachine"
+  ]
+ },
+ "tricepsExtension": {
+  "name": "Triceps Extension",
+  "def": "dumbbell",
+  "lb": 20,
+  "kg": 7.5,
+  "eq": [
+   "band",
+   "barbell",
+   "cable",
+   "dumbbell"
+  ]
+ },
+ "tricepsPushdown": {
+  "name": "Triceps Pushdown",
+  "def": "cable",
+  "lb": 40,
+  "kg": 17.5,
+  "eq": [
+   "cable"
+  ]
+ },
+ "uprightRow": {
+  "name": "Upright Row",
+  "def": "dumbbell",
+  "lb": 20,
+  "kg": 7.5,
+  "eq": [
+   "band",
+   "barbell",
+   "cable",
+   "dumbbell"
+  ]
+ },
+ "vUp": {
+  "name": "V Up",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "band",
+   "bodyweight",
+   "dumbbell"
+  ]
+ },
+ "widePullUp": {
+  "name": "Wide Pull Up",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight"
+  ]
+ },
+ "wristCurl": {
+  "name": "Wrist Curl",
+  "def": "barbell",
+  "lb": 25,
+  "kg": 10,
+  "eq": [
+   "barbell",
+   "dumbbell",
+   "ezbar"
+  ]
+ },
+ "wristRoller": {
+  "name": "Wrist Roller",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight"
+  ]
+ },
+ "zercherSquat": {
+  "name": "Zercher Squat",
+  "def": "barbell",
+  "lb": 105,
+  "kg": 47.5,
+  "eq": [
+   "barbell"
+  ]
+ },
+ "wallPushup": {
+  "name": "Wall Push Up",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight"
+  ]
+ },
+ "inclinePushup": {
+  "name": "Incline Push Up",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight"
+  ]
+ },
+ "kneePushup": {
+  "name": "Knee Push Up",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight"
+  ]
+ },
+ "diamondPushup": {
+  "name": "Diamond Push Up",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight"
+  ]
+ },
+ "pseudoPlanchePushup": {
+  "name": "Pseudo Planche Push Up",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight"
+  ]
+ },
+ "pikePushup": {
+  "name": "Pike Push Up",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight"
+  ]
+ },
+ "ringDip": {
+  "name": "Ring Dip",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight"
+  ]
+ },
+ "negativeDip": {
+  "name": "Negative Dip",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight"
+  ]
+ },
+ "verticalRow": {
+  "name": "Vertical Row",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight"
+  ]
+ },
+ "wideRow": {
+  "name": "Wide Row",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight"
+  ]
+ },
+ "ringRow": {
+  "name": "Ring Row",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight"
+  ]
+ },
+ "tuckFrontLeverRow": {
+  "name": "Tuck Front Lever Row",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight"
+  ]
+ },
+ "frontLeverRow": {
+  "name": "Front Lever Row",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight"
+  ]
+ },
+ "scapularPullUp": {
+  "name": "Scapular Pull Up",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight"
+  ]
+ },
+ "deadHang": {
+  "name": "Dead Hang",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight"
+  ]
+ },
+ "negativePullup": {
+  "name": "Negative Pull Up",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight"
+  ]
+ },
+ "assistedSquat": {
+  "name": "Assisted Squat",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight"
+  ]
+ },
+ "shrimpSquat": {
+  "name": "Shrimp Squat",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight"
+  ]
+ },
+ "nordicCurl": {
+  "name": "Nordic Curl",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight",
+   "band"
+  ]
+ },
+ "handstand": {
+  "name": "Handstand",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight"
+  ]
+ },
+ "wallHandstand": {
+  "name": "Wall Handstand",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight"
+  ]
+ },
+ "crowPose": {
+  "name": "Crow Pose",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight"
+  ]
+ },
+ "dragonFlag": {
+  "name": "Dragon Flag",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight"
+  ]
+ },
+ "copenhagenPlank": {
+  "name": "Copenhagen Plank",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight"
+  ]
+ },
+ "hangingKneeRaise": {
+  "name": "Hanging Knee Raise",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight"
+  ]
+ },
+ "archHang": {
+  "name": "Arch Hang",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight"
+  ]
+ },
+ "supportHold": {
+  "name": "Support Hold",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight"
+  ]
+ },
+ "pallofPress": {
+  "name": "Pallof Press",
+  "def": "band",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "band"
+  ]
+ },
+ "renegadeRow": {
+  "name": "Renegade Row",
+  "def": "dumbbell",
+  "lb": 20,
+  "kg": 10,
+  "eq": [
+   "dumbbell"
+  ]
+ },
+ "ringAbRollout": {
+  "name": "Ring Ab Rollout",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight"
+  ]
+ },
+ "kneelingRingAbRollout": {
+  "name": "Kneeling Ring Ab Rollout",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight"
+  ]
+ },
+ "archerPullUp": {
+  "name": "Archer Pull Up",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight"
+  ]
+ },
+ "skinTheCat": {
+  "name": "Skin the Cat",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight"
+  ]
+ },
+ "hollowBodyHold": {
+  "name": "Hollow Body Hold",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight"
+  ]
+ },
+ "deadBug": {
+  "name": "Dead Bug",
+  "def": "bodyweight",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "bodyweight"
+  ]
+ },
+ "shoulderPassThrough": {
+  "name": "Shoulder Pass Through",
+  "def": "band",
+  "lb": 0,
+  "kg": 0,
+  "eq": [
+   "band"
+  ]
+ }
+}
