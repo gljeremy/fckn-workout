@@ -66,11 +66,8 @@ export function Results({ matches, routines, selected, strong, onSelect, onClose
   }, [r, t.id]);
 
   useEffect(() => {
-    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && onClose();
-    window.addEventListener('keydown', onKey);
     dialog.current?.focus();
-    return () => window.removeEventListener('keydown', onKey);
-  }, [onClose]);
+  }, []);
 
   const sets = weeklySets(r);
   const topMuscles = (Object.keys(sets) as Focus[]).filter((k) => sets[k] > 0).sort((a, b) => sets[b] - sets[a]);
@@ -82,7 +79,27 @@ export function Results({ matches, routines, selected, strong, onSelect, onClose
 
   return (
     <div className="overlay" onClick={(e) => e.target === e.currentTarget && onClose()}>
-      <div className="results" role="dialog" aria-modal="true" aria-labelledby="routine-name" tabIndex={-1} ref={dialog}>
+      <div
+        className="results"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="routine-name"
+        tabIndex={-1}
+        ref={dialog}
+        onKeyDown={(e) => {
+          if (e.key === 'Escape') onClose();
+          if (e.key !== 'Tab') return;
+          const controls = [...e.currentTarget.querySelectorAll<HTMLElement>('a[href], button, input, select, textarea, summary, [tabindex]')]
+            .filter((el) => el.tabIndex >= 0 && !el.matches(':disabled') && el.getClientRects().length > 0);
+          const first = controls[0];
+          const last = controls.at(-1);
+          const active = document.activeElement;
+          if (active === e.currentTarget || active === (e.shiftKey ? first : last)) {
+            e.preventDefault();
+            (e.shiftKey ? last : first)?.focus();
+          }
+        }}
+      >
         <article className="detail">
           <div className="detail-art">
             <WeekGlyph days={r.days.map((d) => ({ kind: d.kind, size: d.minutes / max }))} letters className="detail-glyph" title={`${t.days} training days a week`} />

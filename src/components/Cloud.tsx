@@ -25,7 +25,7 @@ interface Props {
   matches: Match[];
   routines: Map<string, Routine>;
   strong: Set<string>;
-  onOpen: (id: string) => void;
+  onOpen: (id: string, trigger: HTMLElement) => void;
 }
 
 export function Cloud({ matches, routines, strong, onOpen }: Props) {
@@ -50,7 +50,7 @@ export function Cloud({ matches, routines, strong, onOpen }: Props) {
             key={id}
             className={`tile tile-${state}`}
             style={{ '--x': `${x}%`, '--y': `${y}%`, '--px': `${px}%`, '--py': `${py}%`, animationDelay: `${(i % 7) * -0.9}s` } as CSSProperties}
-            onClick={() => onOpen(id)}
+            onClick={(e) => onOpen(id, e.currentTarget)}
             tabIndex={f >= 0 ? 0 : -1}
             aria-label={f >= 0 ? `Open ${label}` : label}
             data-testid={f >= 0 ? 'featured-tile' : undefined}

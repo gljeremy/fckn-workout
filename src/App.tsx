@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Cloud } from './components/Cloud';
 import { BackIcon, GridIcon, Logo, RestartIcon } from './components/Icons';
 import { QuestionCard } from './components/QuestionCard';
@@ -28,6 +28,15 @@ function useAnswers(): [Answers, (a: Answers) => void] {
 export function App() {
   const [answers, setAnswers] = useAnswers();
   const [open, setOpen] = useState<string | null>(null);
+  const opener = useRef<HTMLElement | null>(null);
+  const openResults = (id: string, trigger: HTMLElement) => {
+    opener.current = trigger;
+    setOpen(id);
+  };
+  const closeResults = useCallback(() => setOpen(null), []);
+  useEffect(() => {
+    if (open === null) opener.current?.focus();
+  }, [open]);
 
   const matches = useMemo(() => rankTemplates(answers), [answers]);
   const routines = useMemo(() => {
@@ -66,13 +75,13 @@ export function App() {
 
   return (
     <div className="app">
-      <header className="top">
+      <header className="top" inert={open !== null}>
         <a className="brand" href="#" onClick={(e) => (e.preventDefault(), restart())}>
           <Logo />
           <span>fckn workout</span>
         </a>
         <nav className="top-actions">
-          <button type="button" className="btn btn-dark btn-small" onClick={() => setOpen(best?.template.id ?? TEMPLATES[0].id)}>
+          <button type="button" className="btn btn-dark btn-small" onClick={(e) => openResults(best?.template.id ?? TEMPLATES[0].id, e.currentTarget)}>
             <GridIcon />
             Browse all
           </button>
@@ -84,13 +93,13 @@ export function App() {
         </nav>
       </header>
 
-      <main className="stage">
+      <main className="stage" inert={open !== null}>
         <h1 className="sr-only">fckn workout: find a workout routine that fits your week</h1>
         <p className="intro sr-only">
           Answer a few questions about your goal, schedule and equipment, and fckn workout narrows {TEMPLATES.length} routines down to the ones that
           fit, then sends your pick to Liftosaur.
         </p>
-        <Cloud matches={matches} routines={routines} strong={strong} onOpen={setOpen} />
+        <Cloud matches={matches} routines={routines} strong={strong} onOpen={openResults} />
 
         <div className="dock">
           <p className="status" aria-live="polite">
@@ -131,10 +140,10 @@ export function App() {
                 <span className="step" />
               </div>
               <div className="done-actions">
-                <button type="button" className="btn btn-primary" onClick={() => setOpen(best?.template.id ?? TEMPLATES[0].id)}>
+                <button type="button" className="btn btn-primary" onClick={(e) => openResults(best?.template.id ?? TEMPLATES[0].id, e.currentTarget)}>
                   See {best?.template.name ?? 'your matches'}
                 </button>
-                <button type="button" className="btn btn-quiet" onClick={() => setOpen(best?.template.id ?? TEMPLATES[0].id)}>
+                <button type="button" className="btn btn-quiet" onClick={(e) => openResults(best?.template.id ?? TEMPLATES[0].id, e.currentTarget)}>
                   Compare all {fitting} matches
                 </button>
               </div>
@@ -144,7 +153,7 @@ export function App() {
       </main>
 
       {open && (
-        <Results matches={matches} routines={routines} selected={open} strong={strong} onSelect={setOpen} onClose={() => setOpen(null)} />
+        <Results matches={matches} routines={routines} selected={open} strong={strong} onSelect={setOpen} onClose={closeResults} />
       )}
     </div>
   );

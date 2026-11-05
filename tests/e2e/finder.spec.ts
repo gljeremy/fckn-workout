@@ -92,6 +92,53 @@ test('a shared link restores the answers, and Back steps through them', async ({
   await expect(page.getByRole('heading', { name: 'Your matches' })).toBeVisible();
 });
 
+for (const entry of ['browse', 'tile', 'see', 'compare'] as const) {
+  test(`results contain keyboard focus and restore the ${entry} opener`, async ({ page, isMobile }) => {
+    await page.goto(entry === 'see' || entry === 'compare'
+      ? './#goal=fitness&level=new&days=3&minutes=45&setup=bodyweight&focus=&avoid=&units=kg'
+      : './');
+    const opener = entry === 'browse' ? page.getByRole('button', { name: 'Browse all' })
+      : entry === 'tile' ? page.getByTestId('featured-tile').first()
+      : page.getByRole('button', { name: entry === 'see' ? /^See / : /^Compare all / });
+    const originalURL = page.url();
+    for (const close of isMobile ? ['escape', 'button'] : ['escape', 'button', 'backdrop']) {
+      await opener.focus();
+      await opener.press('Enter');
+      const dialog = page.getByRole('dialog');
+      await expect(dialog).toBeFocused();
+      await expect(page.locator('header.top')).toHaveJSProperty('inert', true);
+      await expect(page.locator('main')).toHaveJSProperty('inert', true);
+      const first = dialog.getByRole('button', { name: 'Close', exact: true });
+      const last = dialog.locator('.match').last();
+      await page.keyboard.press('Shift+Tab');
+      await expect(last).toBeFocused();
+      await page.keyboard.press('Tab');
+      await expect(first).toBeFocused();
+      await page.keyboard.press('Tab');
+      await expect(dialog.locator('summary').first()).toBeFocused();
+      await page.keyboard.press('Shift+Tab');
+      await expect(first).toBeFocused();
+      await page.keyboard.press('Shift+Tab');
+      await expect(last).toBeFocused();
+      await page.keyboard.press('Enter');
+      await expect(last).toHaveAttribute('aria-current', 'true');
+      await expect(last).toBeFocused();
+      await page.locator('header .brand').evaluate((el: HTMLElement) => el.focus());
+      await expect(last).toBeFocused();
+      await page.locator('main button').first().evaluate((el: HTMLElement) => el.focus());
+      await expect(last).toBeFocused();
+      await expect(page).toHaveURL(originalURL);
+      if (close === 'escape') await page.keyboard.press('Escape');
+      else if (close === 'button') await first.click();
+      else await page.locator('.overlay').click({ position: { x: 1, y: 1 } });
+      await expect(dialog).toHaveCount(0);
+      await expect(opener).toBeFocused();
+      await expect(page.locator('header.top')).toHaveJSProperty('inert', false);
+      await expect(page.locator('main')).toHaveJSProperty('inert', false);
+    }
+  });
+}
+
 test('routines that need other days or gear are faded and marked', async ({ page }) => {
   await page.goto('./#goal=strength&days=4&setup=dumbbells');
   await expect(page.locator('.tile-faded').first()).toBeVisible();
