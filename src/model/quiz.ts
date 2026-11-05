@@ -70,7 +70,7 @@ export const QUESTIONS: Question[] = [
     title: 'Where do you train?',
     choices: [
       { value: 'gym', title: 'Full gym', sub: 'Barbells, machines, cables' },
-      { value: 'homeBarbell', title: 'Home gym', sub: 'Barbell, rack, dumbbells' },
+      { value: 'homeBarbell', title: 'Home gym', sub: 'Barbell, rack, dumbbells, bench' },
       { value: 'dumbbells', title: 'Dumbbells', sub: 'A pair and a bench' },
       { value: 'kettlebell', title: 'Kettlebell', sub: 'One or two bells' },
       { value: 'bodyweight', title: 'Bodyweight', sub: 'A pull-up bar helps' },
@@ -79,7 +79,7 @@ export const QUESTIONS: Question[] = [
   {
     id: 'focus',
     title: 'Anything you want to bring up?',
-    hint: 'Pick any. They get extra sets and an extra exercise.',
+    hint: 'Pick any. They get extra work where your gear and session time allow.',
     multi: true,
     none: 'balanced',
     choices: [

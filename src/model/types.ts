@@ -28,7 +28,14 @@ export type Gear =
   | 'band'
   | 'ezbar'
   | 'trapbar'
-  | 'bar';
+  | 'bar'
+  | 'bench'
+  | 'box'
+  | 'parallelBars'
+  | 'abWheel'
+  | 'anchor'
+  | 'rack'
+  | 'preacherBench';
 
 export type Role = 'main' | 'second' | 'acc' | 'core' | 'cond';
 

@@ -32,15 +32,46 @@ export interface Option {
   muscle: Focus;
 }
 
-const ONE_SIDE = /Split Squat|Lunge|Step up|Single Leg|One Arm|Pistol|Side Plank|Concentration/;
+const ONE_SIDE = new Set([
+  'Bulgarian Split Squat', 'Bent Over One Arm Row', 'Russian Twist', 'Reverse Lunge',
+  'Split Squat', 'Step up', 'Pistol Squat', 'Single Leg Deadlift', 'Side Plank', 'Single Leg Hip Thrust',
+]);
+const DUMBBELL_ONE_SIDE = new Set(['Bicep Curl', 'Hammer Curl', 'Preacher Curl']);
+const SUPPORT: Record<string, Gear[]> = {
+  'Squat': ['rack'],
+  'Front Squat': ['rack'],
+  'Bench Press': ['bench'],
+  'Incline Bench Press': ['bench'],
+  'Bulgarian Split Squat': ['bench'],
+  'Step up': ['box'],
+  'Nordic Curl': ['anchor'],
+  'Hip Thrust': ['bench'],
+  'Single Leg Hip Thrust': ['bench'],
+  'Chest Dip': ['parallelBars'],
+  'Triceps Dip': ['parallelBars'],
+  'Bench Dip': ['bench'],
+  'Incline Push Up': ['bench'],
+  'Pullover': ['bench'],
+  'Chest Fly': ['bench'],
+  'Skullcrusher': ['bench'],
+  'Preacher Curl': ['preacherBench'],
+  'Face Pull': ['anchor'],
+  'Ab Wheel': ['abWheel'],
+};
+
+function needs(name: string, equipment: Equipment): Gear[] {
+  const support = equipment === 'leverageMachine' || equipment === 'cable' ||
+    (name === 'Squat' && equipment !== 'barbell') ? [] : SUPPORT[name] ?? [];
+  return [equipment, ...support, ...(equipment === 'barbell' && /Bench Press/.test(name) ? ['rack' as const] : [])];
+}
 
 const o = (name: string, equipment: Equipment, lb: number, muscle: Focus, extra: Partial<Option> = {}): Option => ({
   name,
   equipment,
-  needs: [equipment === 'bodyweight' ? 'bodyweight' : equipment],
+  needs: needs(name, equipment),
   lb,
   muscle,
-  unilateral: ONE_SIDE.test(name),
+  unilateral: ONE_SIDE.has(name) || (equipment === 'dumbbell' && DUMBBELL_ONE_SIDE.has(name)),
   ...extra,
 });
 const bar: Partial<Option> = { needs: ['bodyweight', 'bar'] };
@@ -109,6 +140,7 @@ export const PATTERNS: Record<Pattern, Option[]> = {
     o('Glute Kickback', 'cable', 20, 'glutes'),
     o('Single Leg Hip Thrust', 'bodyweight', 0, 'glutes'),
     o('Hip Thrust', 'bodyweight', 0, 'glutes'),
+    o('Glute Bridge March', 'bodyweight', 0, 'glutes'),
   ],
   calf: [
     o('Standing Calf Raise', 'leverageMachine', 90, 'legs'),
@@ -127,7 +159,7 @@ export const PATTERNS: Record<Pattern, Option[]> = {
     o('Incline Bench Press', 'dumbbell', 20, 'chest', { compound: true }),
     o('Incline Bench Press', 'barbell', 55, 'chest', { compound: true }),
     o('Incline Chest Press', 'leverageMachine', 50, 'chest', { compound: true }),
-    o('Chest Dip', 'bodyweight', 0, 'chest', { compound: true, minLevel: 'some', needs: ['bodyweight', 'bar'] }),
+    o('Chest Dip', 'bodyweight', 0, 'chest', { compound: true, minLevel: 'some' }),
     o('Diamond Push Up', 'bodyweight', 0, 'chest', { compound: true }),
     o('Incline Push Up', 'bodyweight', 0, 'chest', { compound: true }),
   ],
@@ -187,7 +219,7 @@ export const PATTERNS: Record<Pattern, Option[]> = {
     o('Skullcrusher', 'ezbar', 35, 'arms'),
     o('Triceps Extension', 'dumbbell', 20, 'arms'),
     o('Skullcrusher', 'barbell', 40, 'arms'),
-    o('Triceps Dip', 'bodyweight', 0, 'arms', { minLevel: 'some', needs: ['bodyweight', 'bar'] }),
+    o('Triceps Dip', 'bodyweight', 0, 'arms', { minLevel: 'some' }),
     o('Diamond Push Up', 'bodyweight', 0, 'arms'),
     o('Bench Dip', 'bodyweight', 0, 'arms'),
   ],

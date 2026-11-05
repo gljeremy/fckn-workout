@@ -36,4 +36,4 @@ npm run lint
 
 ## Deploying
 
-A Docker image builds the site and serves it from nginx under `/fckn-workout/` (`Dockerfile`, `nginx.conf`, `compose.yml`), with `/fckn-workout/health` for health checks. On the homelab it joins the `homelab` network and is registered in the homelab repo's `apps/registry.yml`.
+The Vite build uses the fixed public base `/fckn-workout/`. The Docker image serves the built site at nginx's root (`Dockerfile`, `nginx.conf`, `compose.yml`): the homelab catalog proxy strips `/fckn-workout` before forwarding requests, including asset requests. Health checks go directly to `http://fckn-workout:80/health`, which returns `200 ok`. On the homelab it joins the external `homelab` network and is registered in the homelab repo's `apps/registry.yml`.

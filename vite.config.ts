@@ -1,11 +1,8 @@
 import { defineConfig } from 'vitest/config';
 import react from '@vitejs/plugin-react';
 
-// Served under apps.fkngo.net/fckn-workout/; override for local or other hosts.
-const base = process.env.APP_BASE_PATH || '/fckn-workout/';
-
 export default defineConfig({
-  base,
+  base: '/fckn-workout/',
   plugins: [react()],
   test: {
     include: ['tests/unit/**/*.test.ts'],

@@ -13,6 +13,7 @@ export interface Template {
   setups: Record<Setup, number>;
   /** Gear it can't do without. */
   requires?: Gear[];
+  nativeSetup?: Setup;
   /** Muscles it gives extra work to. */
   emphasis?: Focus[];
   /** Session length it's written for, in minutes. */
@@ -365,6 +366,7 @@ export const TEMPLATES: Template[] = [
   },
   {
     id: 'dumbbell-3',
+    nativeSetup: 'dumbbells',
     name: 'Dumbbell Full Body',
     tagline: 'Everything you need from a pair of dumbbells and a bench.',
     split: 'Full body ×3',
@@ -383,6 +385,7 @@ export const TEMPLATES: Template[] = [
   },
   {
     id: 'dumbbell-4',
+    nativeSetup: 'dumbbells',
     name: 'Dumbbell Upper / Lower',
     tagline: 'Four days of dumbbell work, split by upper and lower body.',
     split: 'Upper / lower',
@@ -402,6 +405,7 @@ export const TEMPLATES: Template[] = [
   },
   {
     id: 'kettlebell-3',
+    nativeSetup: 'kettlebell',
     name: 'Kettlebell Strength and Conditioning',
     tagline: 'Swings, squats and presses. Strong and fit with one bell.',
     split: 'Full body + swings',
@@ -420,6 +424,7 @@ export const TEMPLATES: Template[] = [
   },
   {
     id: 'kettlebell-2',
+    nativeSetup: 'kettlebell',
     name: 'Kettlebell Twice a Week',
     tagline: 'Two kettlebell sessions that cover strength and conditioning.',
     split: 'Full body ×2',
@@ -437,6 +442,7 @@ export const TEMPLATES: Template[] = [
   },
   {
     id: 'calisthenics-3',
+    nativeSetup: 'bodyweight',
     name: 'Calisthenics Foundations',
     tagline: 'Push-ups, rows, squats and pull-ups. No gym needed.',
     split: 'Full body ×3',
@@ -454,6 +460,7 @@ export const TEMPLATES: Template[] = [
   },
   {
     id: 'calisthenics-4',
+    nativeSetup: 'bodyweight',
     name: 'Calisthenics Upper / Lower',
     tagline: 'Four bodyweight days. Get strong at your own body weight.',
     split: 'Upper / lower',

@@ -1,10 +1,10 @@
 import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
-import { buildRoutine, isStrongFit, rankTemplates, SETUP_GEAR, weeklySets } from '../../src/model/engine';
+import { buildRoutine, isStrongFit, minutesFor, optionsFor, prescribe, rankTemplates, SETUP_GEAR, weeklySets, withDefaults } from '../../src/model/engine';
 import { EQUIPMENT_NAMES, PATTERNS, fullName } from '../../src/model/exercises';
 import { decode, encode, exportedProgram, liftosaurLink, programText } from '../../src/model/liftosaur';
 import { TEMPLATES } from '../../src/model/templates';
-import type { Answers, Avoid, Goal, Level, Setup } from '../../src/model/types';
+import type { Answers, Avoid, Focus, Goal, Level, Pattern, Setup } from '../../src/model/types';
 
 // Liftosaur's built-in exercises and the equipment it has artwork for,
 // extracted from its source (src/models/exercise.ts, exerciseImage.ts).
@@ -38,6 +38,50 @@ describe('exercise library', () => {
         expect(art || NO_ART_OK.has(fullName(o)), `${fullName(o)} has no Liftosaur artwork`).toBe(true);
         expect(EQUIPMENT_NAMES[o.equipment]).toBeTruthy();
       }
+    }
+  });
+
+  it('requires supporting gear at the eligibility boundary', () => {
+    const supports: Record<string, Setup[]> = {
+      'Bulgarian Split Squat': ['gym', 'homeBarbell', 'dumbbells'],
+      'Step up': ['gym'],
+      'Nordic Curl': ['gym'],
+      'Hip Thrust': ['gym', 'homeBarbell', 'dumbbells'],
+      'Single Leg Hip Thrust': ['gym', 'homeBarbell', 'dumbbells'],
+      'Bench Press': ['gym', 'homeBarbell', 'dumbbells'],
+      'Incline Bench Press': ['gym', 'homeBarbell', 'dumbbells'],
+      'Incline Push Up': ['gym', 'homeBarbell', 'dumbbells'],
+      'Bench Dip': ['gym', 'homeBarbell', 'dumbbells'],
+      'Chest Dip': ['gym'],
+      'Triceps Dip': ['gym'],
+      'Ab Wheel': ['gym'],
+      'Face Pull': ['gym'],
+      'Preacher Curl': ['gym'],
+    };
+    for (const setup of setups) {
+      const a = withDefaults({ setup, level: 'seasoned' });
+      for (const pattern of Object.keys(PATTERNS) as Pattern[]) {
+        for (const o of optionsFor(pattern, a)) {
+          if (supports[o.name]) expect(supports[o.name], `${setup}: ${fullName(o)}`).toContain(setup);
+        }
+      }
+    }
+    expect(optionsFor('ipush', withDefaults({ setup: 'bodyweight' })).map(fullName)).toContain('Diamond Push Up, Bodyweight');
+    expect(optionsFor('glute', withDefaults({ setup: 'bodyweight' })).map(fullName)).toContain('Glute Bridge March, Bodyweight');
+  });
+
+  it('times unilateral defaults like Liftosaur, including equipment-specific curls', () => {
+    const cases: [Pattern, string, string, number][] = [
+      ['biceps', 'Bicep Curl', 'dumbbell', 14.5],
+      ['biceps', 'Hammer Curl', 'dumbbell', 14.5],
+      ['biceps', 'Bicep Curl', 'cable', 9.25],
+      ['biceps', 'Bicep Curl', 'barbell', 9.25],
+      ['core', 'Russian Twist', 'bodyweight', 11],
+      ['core', 'Side Plank', 'bodyweight', 7],
+    ];
+    for (const [pattern, name, equipment, minutes] of cases) {
+      const o = PATTERNS[pattern].find((o) => o.name === name && o.equipment === equipment)!;
+      expect(minutesFor(prescribe(o, pattern, 'acc', withDefaults({ minutes: 90 })), o.unilateral)).toBe(minutes);
     }
   });
 });
@@ -80,7 +124,7 @@ describe('building routines', () => {
         expect(r.days).toHaveLength(t.days);
         const gear = SETUP_GEAR[a.setup];
         for (const d of r.days) {
-          expect(d.exercises.length, `${t.id} ${d.name} ${JSON.stringify(a)}`).toBeGreaterThanOrEqual(3);
+          expect(d.exercises.length, `${t.id} ${d.name} ${JSON.stringify(a)}`).toBeGreaterThanOrEqual(2);
           const names = d.exercises.map((e) => fullName(e.option));
           expect(new Set(names).size).toBe(names.length);
           for (const e of d.exercises) expect(e.option.needs.every((g) => gear.includes(g))).toBe(true);
@@ -93,9 +137,13 @@ describe('building routines', () => {
     for (const a of everyAnswer()) {
       for (const t of TEMPLATES) {
         for (const d of buildRoutine(t, a).days) {
-          // Five minutes are left for warm-ups. At least three exercises always
-          // stay, which can run a short session long.
-          if (d.exercises.length > 3) expect(d.minutes, `${t.id} ${d.name} ${a.minutes}`).toBeLessThanOrEqual(a.minutes - 4);
+          const actual = d.exercises.reduce((sum, e) => sum + minutesFor(e.rx, e.option.unilateral), 0);
+          expect(actual + 5, `${t.id} ${d.name} ${JSON.stringify(a)}`).toBeLessThanOrEqual(a.minutes + 1e-8);
+          expect(d.minutes).toBe(Math.round(actual));
+          for (const e of d.exercises) {
+            expect(e.rx.setCount).toBeGreaterThanOrEqual(e.role === 'main' ? 3 : 2);
+            expect(Number(e.rx.sets.split('x')[0])).toBe(e.rx.setCount);
+          }
         }
       }
     }
@@ -115,6 +163,52 @@ describe('building routines', () => {
     const focused = weeklySets(buildRoutine(t, { setup: 'gym', minutes: 90, focus: ['arms', 'glutes'] }));
     expect(focused.arms).toBeGreaterThan(base.arms);
     expect(focused.glutes).toBeGreaterThan(base.glutes);
+  });
+
+  it('reduces sets before dropping exercises, including heavy short sessions', () => {
+    const t = TEMPLATES.find((t) => t.id === 'foundation-3')!;
+    const r = buildRoutine(t, { goal: 'strength', level: 'seasoned', setup: 'gym', minutes: 30 });
+    expect(r.days[0].exercises.map((e) => [e.option.name, e.rx.setCount, e.rx.sets])).toEqual([
+      ['Squat', 3, '3x3-5'], ['Bench Press', 3, '3x3-5'],
+    ]);
+    expect(programText(r)).toContain('Squat, Barbell / 3x3-5');
+    const roomy = buildRoutine(t, { goal: 'strength', level: 'seasoned', setup: 'gym', minutes: 60 });
+    expect(roomy.days[0].exercises).toHaveLength(5);
+    expect(roomy.days[0].exercises[0].rx.setCount).toBe(4);
+    expect(roomy.days[0].exercises.at(-1)!.rx.setCount).toBe(2);
+  });
+
+  it('adds focus work with limited gear, including main-lift-only shoulders', () => {
+    const t = TEMPLATES.find((t) => t.id === 'calisthenics-3')!;
+    const a: Answers = { setup: 'bodyweight', level: 'some', goal: 'muscle', minutes: 90 };
+    const base = weeklySets(buildRoutine(t, a));
+    for (const focus of ['chest', 'back', 'shoulders', 'arms', 'legs', 'glutes', 'core'] as Focus[]) {
+      const r = buildRoutine(t, { ...a, focus: [focus] });
+      expect(weeklySets(r)[focus], focus).toBeGreaterThan(base[focus]);
+      for (const d of r.days) {
+        expect(d.exercises.reduce((sum, e) => sum + minutesFor(e.rx, e.option.unilateral), 5)).toBeLessThanOrEqual(90);
+      }
+    }
+    const focused = buildRoutine(t, { ...a, focus: ['shoulders'] });
+    expect(focused.days[2].exercises.find((e) => e.option.name === 'Pike Push Up')!.rx.setCount).toBe(4);
+  });
+
+  it('preserves equipment-specific modalities in larger setups without borrowing missing gear', () => {
+    for (const t of TEMPLATES.filter((t) => t.nativeSetup)) {
+      const native = t.nativeSetup!;
+      for (const setup of setups) {
+        const a: Answers = { setup, minutes: 90, focus: ['arms', 'shoulders', 'glutes'] };
+        const r = buildRoutine(t, a);
+        for (const d of r.days) for (const e of d.exercises) {
+          expect(e.option.needs.every((g) => SETUP_GEAR[native].includes(g) && SETUP_GEAR[setup].includes(g))).toBe(true);
+        }
+        if (SETUP_GEAR[native].every((g) => SETUP_GEAR[setup].includes(g))) {
+          expect(r.days).toEqual(buildRoutine(t, { ...a, setup: native }).days);
+        }
+        expect(r.answers.setup).toBe(setup);
+        expect(r.name).toContain(t.name);
+      }
+    }
   });
 
   it('uses the units asked for', () => {

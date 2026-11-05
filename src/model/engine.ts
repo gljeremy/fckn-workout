@@ -3,9 +3,9 @@ import { TEMPLATES, type Template } from './templates';
 import type { Answers, DayKind, Focus, Gear, Goal, Level, Pattern, Role, Setup, Slot, Units } from './types';
 
 export const SETUP_GEAR: Record<Setup, Gear[]> = {
-  gym: ['barbell', 'dumbbell', 'cable', 'leverageMachine', 'bodyweight', 'kettlebell', 'band', 'ezbar', 'trapbar', 'bar'],
-  homeBarbell: ['barbell', 'dumbbell', 'bodyweight', 'band', 'bar'],
-  dumbbells: ['dumbbell', 'bodyweight'],
+  gym: ['barbell', 'dumbbell', 'cable', 'leverageMachine', 'bodyweight', 'kettlebell', 'band', 'ezbar', 'trapbar', 'bar', 'bench', 'box', 'parallelBars', 'abWheel', 'anchor', 'rack', 'preacherBench'],
+  homeBarbell: ['barbell', 'dumbbell', 'bodyweight', 'band', 'bar', 'bench', 'rack'],
+  dumbbells: ['dumbbell', 'bodyweight', 'bench'],
   kettlebell: ['kettlebell', 'bodyweight'],
   bodyweight: ['bodyweight', 'bar'],
 };
@@ -311,6 +311,8 @@ export function minutesFor(rx: Prescription, unilateral = false): number {
 export function buildRoutine(template: Template, answers: Answers): Routine {
   const a = withDefaults(answers);
   const budget = a.minutes - WARMUP_MINUTES;
+  const gear = SETUP_GEAR[a.setup].filter((g) => !template.nativeSetup || SETUP_GEAR[template.nativeSetup].includes(g));
+  const eligible = (pattern: Pattern) => optionsFor(pattern, a).filter((o) => o.needs.every((g) => gear.includes(g)));
   const used = new Map<string, number>(); // option name → times used this week
   const firstScheme = new Map<string, string>(); // exercise → its first prescription
 
@@ -320,8 +322,9 @@ export function buildRoutine(template: Template, answers: Answers): Routine {
     for (const f of a.focus) {
       const fits = isLowerFocus(f) ? LOWER_KINDS : f === 'core' ? [...UPPER_KINDS, ...LOWER_KINDS] : UPPER_KINDS;
       if (!fits.includes(d.kind)) continue;
-      // A day that already trains the muscle every way just gets its priority boost.
-      const extra = FOCUS_EXTRA[f].find((p) => !slots.some((sl) => sl.pattern === p));
+      const extra = [...new Set([...FOCUS_EXTRA[f], ...FOCUS_PATTERNS[f]])].find(
+        (p) => !slots.some((sl) => sl.pattern === p) && eligible(p).some((o) => o.muscle === f),
+      );
       if (!extra) continue;
       slots.push({ pattern: extra, role: f === 'core' ? 'core' : 'acc', prio: 5 });
     }
@@ -329,7 +332,7 @@ export function buildRoutine(template: Template, answers: Answers): Routine {
     const order: number[] = [];
     const add = (slot: Slot, i: number) => {
       // Never the same exercise twice in one day.
-      const options = optionsFor(slot.pattern, a).filter(
+      const options = eligible(slot.pattern).filter(
         (o) => !candidates.some((c) => fullName(c.option) === fullName(o)),
       );
       if (!options.length) return;
@@ -340,7 +343,7 @@ export function buildRoutine(template: Template, answers: Answers): Routine {
           : (options.find((o) => !used.has(fullName(o))) ??
             [...options].sort((x, y) => (used.get(fullName(x)) ?? 0) - (used.get(fullName(y)) ?? 0))[0]);
       const focused = a.focus.some((f) => FOCUS_PATTERNS[f].includes(slot.pattern));
-      const rx = prescribe(option, slot.pattern, slot.role, a, focused && slot.role !== 'main' ? 1 : 0);
+      const rx = prescribe(option, slot.pattern, slot.role, a, focused ? 1 : 0);
       candidates.push({ option, pattern: slot.pattern, role: slot.role, rx });
       // Focus muscles' exercises are the last to go when time runs short.
       order.push(slot.prio + (focused ? 4.5 : 0) + (slots.length - i) * 0.01);
@@ -352,17 +355,27 @@ export function buildRoutine(template: Template, answers: Answers): Routine {
       add({ pattern: p, role: p === 'core' ? 'core' : p === 'cond' ? 'cond' : 'acc', prio: 0.5 }, slots.length);
     }
 
-    // Keep the highest-priority exercises that fit the session.
-    const byPrio = candidates.map((c, i) => ({ c, p: order[i], i })).sort((x, y) => y.p - x.p);
-    const keep = new Set<number>();
-    let total = 0;
+    const byPrio = candidates.map((c, i) => ({ c, p: order[i], i })).sort((x, y) => x.p - y.p);
+    const duration = (e: BuiltExercise) => minutesFor(e.rx, e.option.unilateral);
+    let total = candidates.reduce((sum, e) => sum + duration(e), 0);
+    for (const { c } of byPrio) {
+      const floor = c.role === 'main' ? 3 : 2;
+      while (total > budget && c.rx.setCount > floor) {
+        total -= duration(c) / c.rx.setCount;
+        c.rx.setCount--;
+        c.rx.sets = `${c.rx.setCount}x${c.rx.sets.split('x')[1]}`;
+      }
+    }
+    const keep = new Set(candidates.map((_, i) => i));
     for (const { c, i } of byPrio) {
-      const m = minutesFor(c.rx, c.option.unilateral);
-      if (keep.size >= 3 && total + m > budget) continue;
-      keep.add(i);
-      total += m;
+      if (total <= budget || keep.size <= 2) break;
+      const remaining = candidates.filter((_, index) => keep.has(index) && index !== i);
+      if (!remaining.some((x, ix) => remaining.some((y, iy) => ix < iy && duration(x) + duration(y) <= budget))) continue;
+      keep.delete(i);
+      total -= duration(c);
     }
     const exercises = candidates.filter((_, i) => keep.has(i));
+    total = exercises.reduce((sum, e) => sum + duration(e), 0);
     for (const e of exercises) used.set(fullName(e.option), (used.get(fullName(e.option)) ?? 0) + 1);
     return { name: d.name, kind: d.kind, exercises, minutes: Math.round(total) };
   });
