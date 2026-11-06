@@ -8,9 +8,9 @@ fckn workout works like [Shapefinder](https://shapefinder.cc/) does for mice: a 
 
 - **24 routine templates** (`src/model/templates.ts`) describe a week as days of movement slots: "squat, main lift", "lateral raise, accessory", each with a priority.
 - **The engine** (`src/model/engine.ts`) scores every template against the answers, then builds each one for this lifter:
-  - picks exercises the equipment allows, skipping anything ruled out (`src/model/exercises.ts`);
+  - picks exercises the equipment allows, including supporting gear such as a bench or pull-up bar, skipping anything ruled out (`src/model/exercises.ts`); dumbbell, kettlebell and calisthenics templates stay within their native equipment even in a full gym;
   - sets sets, reps, rest and starting weight from goal, level and role;
-  - adds extra work for the muscles picked, then trims each day to the session length, using Liftosaur's own workout-time estimate (20 s to set up, 7 s a rep, plus rest) with five minutes left for warm-ups.
+  - adds extra exercises or sets for the muscles picked where equipment and session time allow, then trims each day using Liftosaur's workout-time model, including timed holds and unilateral work, with five minutes left for warm-ups. It cuts sets on lower-priority exercises first (no lower than three for main lifts or two for other exercises), then drops exercises while keeping at least two per day.
 - **Progression** is written in Liftoscript: `lp` for fixed-rep strength work, `dp` (double progression) for rep ranges, and a small custom script that adds a rep to unloaded bodyweight moves.
 
 ## Getting it into Liftosaur
@@ -29,11 +29,11 @@ No account, API key or server is involved: it all runs in the browser. Exercise 
 ```bash
 npm install
 npm run dev        # http://localhost:5173/fckn-workout/
-npm test           # unit tests: every routine for every combination of answers
+npm test           # unit tests: routine rules, exports and URL answers
 npx playwright test
 npm run lint
 ```
 
 ## Deploying
 
-A Docker image builds the site and serves it from nginx under `/fckn-workout/` (`Dockerfile`, `nginx.conf`, `compose.yml`), with `/fckn-workout/health` for health checks. On the homelab it joins the `homelab` network and is registered in the homelab repo's `apps/registry.yml`.
+The Vite build uses the fixed public base `/fckn-workout/`. The Docker image serves the built site at nginx's root (`Dockerfile`, `nginx.conf`, `compose.yml`): the homelab catalog proxy strips `/fckn-workout` before forwarding requests, including asset requests. Health checks go directly to `http://fckn-workout:80/health`, which returns `200 ok`. On the homelab it joins the external `homelab` network and is registered in the homelab repo's `apps/registry.yml`.

@@ -1,0 +1,11 @@
+services:
+  fckn-workout:
+    build: .
+    container_name: fckn-workout
+    restart: unless-stopped
+    networks:
+      - homelab
+
+networks:
+  homelab:
+    external: true
