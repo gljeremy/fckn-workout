@@ -14,6 +14,8 @@ export default tseslint.config(
     rules: {
       ...reactHooks.configs.recommended.rules,
       'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+      // Keep files small enough for agents (and people) to hold in their head.
+      'max-lines': ['error', { max: 1000 }],
     },
   },
 );
